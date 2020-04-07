@@ -11,7 +11,7 @@
         android:id="@+id/txvHeaderMakeTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAKE A TASK!"
+        android:text="ADD NEW TASK !"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25dp"
@@ -70,30 +70,33 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Priority" />
-        />
     </RelativeLayout>
 
 
     <RelativeLayout
-        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/priority"
-
+        android:id="@+id/picker"
         >
 
-        <CalendarView
-            android:id="@+id/calendarView"
+
+        <DatePicker
+            android:id="@+id/datePicker1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+
+            android:layout_marginLeft="60dp"
+            android:calendarViewShown="false"/>
     </RelativeLayout>
 
     <Button
+        android:id="@+id/bt1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date"
+        android:layout_below="@+id/picker"
         android:text="Submit">
-
     </Button>
 
 
