@@ -32,4 +32,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.github.javafaker:javafaker:1.0.2'
     implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
