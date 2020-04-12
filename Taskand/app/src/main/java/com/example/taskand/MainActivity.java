@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.imageButton4){
-            Toast toast = Toast.makeText(getApplicationContext(), "Wa L3adaw", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "First button", Toast.LENGTH_SHORT);
             toast.show();
             startActivity(new Intent(getApplicationContext(), MakeTaskActivity.class));
 
