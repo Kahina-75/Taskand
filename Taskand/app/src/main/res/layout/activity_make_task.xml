@@ -88,8 +88,10 @@
             android:datePickerMode="spinner"
 
             android:layout_marginLeft="60dp"
-            android:calendarViewShown="false"/>
+
+        android:calendarViewShown="false"/>
     </RelativeLayout>
+
 
     <Button
         android:id="@+id/bt1"

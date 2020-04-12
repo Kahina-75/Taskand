@@ -1,17 +1,23 @@
 package com.example.taskand;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.List;
 
 
 //test first commit
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        /*super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Task A = new Task("A");
         Task B = new Task("B");
@@ -39,12 +45,25 @@ public class MainActivity extends AppCompatActivity {
             Task fils = soustaches_t.get(i);
             System.out.println(fils.getName());
         }
+    */
 
-
-
-
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ImageButton bt1 = findViewById(R.id.imageButton4);
+        bt1.setOnClickListener(this);
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.imageButton4){
+            Toast toast = Toast.makeText(getApplicationContext(), "Wa L3adaw", Toast.LENGTH_SHORT);
+            toast.show();
+            startActivity(new Intent(getApplicationContext(), MakeTaskActivity.class));
+
+        }
+
+        }
 
 }
+

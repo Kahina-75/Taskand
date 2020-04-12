@@ -12,10 +12,4 @@ public class TaskListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task_list);
     }
 
-
-
-
-
-
-
 }
