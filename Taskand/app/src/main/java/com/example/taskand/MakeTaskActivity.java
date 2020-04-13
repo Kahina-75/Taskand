@@ -38,29 +38,34 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
         if (v.getId() == R.id.bt1){
             JSONObject obj = new JSONObject();
             JSONObject person = new JSONObject();
+            JSONArray jarr = null;
+            JSONObject file = null;
+            String tmp =null;
             try{
+                file = readFromJsonFile("TasksFile.json");
                 EditText name = (EditText)findViewById(R.id.edtName);
+                tmp = name.getText().toString();
                 EditText desc = (EditText)findViewById(R.id.edtDescription);
                 EditText edtPrio = (EditText)findViewById(R.id.edtPriority);
                 DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker1);
                 int day = datePicker.getDayOfMonth();
                 int month = datePicker.getMonth() + 1;
                 int year = datePicker.getYear();
-
-                person.put("TaskName", name.getText());
+                JSONObject o = new JSONObject();
+                o.put(name.getText().toString(),name.getText().toString());
+                jarr = file.getJSONArray("array");
+                jarr.put(o);
+                /*person.put("TaskName", name.getText());
                 person.put("TaskDescritpion", desc.getText());
                 person.put("TaskPriority", edtPrio.getText());
                 person.put("TaskDate", day+"-" + month + "-"+year);
-
+                person.put("array",jarr);*/
+                file.put("TaskName" , name.getText().toString());
+                file.put("array",jarr);
             }catch(Exception exception){}
-
-
-            //mCreateAndSaveFile("TasksFile.json",person.toString());
-            ArrayList<String> list = readFromJsonFile("TasksFile.json");
-            /*Toast toast = Toast.makeText(getApplicationContext(), "number of : " + list.size() + "", Toast.LENGTH_SHORT);
-            toast.show();*/
-            //mReadJsonData("TasksFile.json");
-
+            Toast toast = Toast.makeText(getApplicationContext(), tmp, Toast.LENGTH_SHORT);
+            toast.show();
+            mCreateAndSaveFile("TasksFile.json",file.toString());
         }
     }
 
@@ -100,13 +105,10 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    public  ArrayList<String> readFromJsonFile(String fileName){
+    public  JSONObject readFromJsonFile(String fileName){
         ArrayList<String> result = new ArrayList<String>();
-
+        JSONObject obj = null;
         try{
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT);
-            toast1.show();
-            Thread.sleep(3000);
             File f = new File("/data/data/" + getPackageName() + "/" + fileName);
             FileInputStream is = new FileInputStream(f);
             int size = is.available();
@@ -116,35 +118,23 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
             is.close();
 
             String mResponse = new String(buffer);
-            JSONObject obj = new JSONObject(mResponse);
-            JSONArray test = new JSONArray(mResponse);
-            JSONObject t = test.getJSONObject(1);
+            obj = new JSONObject(mResponse);
+            result.add(obj.getString("TaskName"));
 
-            JSONArray arr = obj.getJSONArray("Tasks");
-            Toast toast = Toast.makeText(getApplicationContext(), "number of : " + t.getString("TaskName"), Toast.LENGTH_SHORT);
-            toast.show();
-            Thread.sleep(5000);
+            //EditText name = (EditText)findViewById(R.id.edtName);
+            //name.setText(obj.getString("TaskName"));
+            JSONArray arr = obj.getJSONArray("array");
             for(int i = 0; i < arr.length(); i++){
-                String name = arr.getJSONObject(i).getString("TaskName");
-                /*µshort salary = Short.parseShort(arr.getJSONObject(i).getString("salary"));
-                String position = arr.getJSONObject(i).getString("position");
-                byte years_in_company = Byte.parseByte(arr.getJSONObject(i).getString("years_in_company"));
-                if (position.compareToIgnoreCase("manager") == 0){
-                    result.add(new Manager(name, salary, position, years_in_company));
-                }
-                else{
-                    result.add(new OrdinaryEmployee(name, salary, position, years_in_company));
-                }*/
-                result.add(name);
-
+                result.add(arr.getJSONObject(i).getString("t1"));
             }
-            /*Toast toast = Toast.makeText(getApplicationContext(), "number of : " + result.size(), Toast.LENGTH_SHORT);
-            toast.show();*/
+            //result.add(arr.getJSONObject(0).getString("t1"));
+        return  obj;
         }
         catch(Exception ex){
             System.out.println(ex.toString());
+            return obj;
         }
-        return result;
+
     }
 
 
