@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TaskDescriptorActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ListTask"></activity>
+        <activity android:name=".TaskDescriptorActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".MakeTaskActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
