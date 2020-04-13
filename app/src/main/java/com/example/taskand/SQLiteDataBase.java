@@ -2,6 +2,7 @@ package com.example.taskand;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.renderscript.RenderScript;
@@ -31,18 +32,25 @@ public class SQLiteDataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
         onCreate(db);
     }
-    public boolean insertData(String Nom, String Description, String Date_Debut, long priorite) {
+
+    //Creation d'une tache
+    public boolean insertData(String Nom, String Description, String Date_Debut) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, Nom);
         contentValues.put(COL_3, Description);
         contentValues.put(COL_4, Date_Debut);
-        contentValues.put(COL_6, priorite);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if (result == -1)
             return false;
         else
             return true;
+    }
+    //Récuperation des taches
+    public Cursor getAllTask(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("Select * from "+TABLE_NAME,null);
+        return result;
     }
     }
 

@@ -82,10 +82,14 @@
 
         >
 
-        <CalendarView
-            android:id="@+id/calendarView"
+        <DatePicker
+            android:id="@+id/datePicker1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+
+            android:layout_marginLeft="60dp"
+            android:calendarViewShown="false"/>
     </RelativeLayout>
 
     <Button
