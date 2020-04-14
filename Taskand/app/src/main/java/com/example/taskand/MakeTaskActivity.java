@@ -2,6 +2,7 @@ package com.example.taskand;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -40,6 +41,8 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
         if (v.getId() == R.id.bt1){
             addTask();
             //supprimer("TEst");
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
         }
     }
 
@@ -109,7 +112,7 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
             file.put("tasks",jarr);
 
         }catch(Exception exception){}
-        Toast toast = Toast.makeText(getApplicationContext(), tmp, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), "Succes add !", Toast.LENGTH_SHORT);
         toast.show();
         mCreateAndSaveFile("TasksFile.json",file.toString());
     }
@@ -118,7 +121,32 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    public void supprimer(String taskName){
+        JSONObject obj = new JSONObject();
+        JSONObject person = new JSONObject();
+        JSONArray jarr = null;
+        JSONObject file = null;
+        try{
+            file = readFromJsonFile("TasksFile.json");
+            //file = new JSONObject();
+            jarr = file.getJSONArray("tasks");
+            ArrayList tmp = new ArrayList();
+            int pos = 0;
+            boolean find = false;
+            for (int i = 0; i < jarr.length(); i++){
+                if(!taskName.equals(jarr.getJSONObject(i).getString("TaskName"))){
+                    tmp.add(jarr.getJSONObject(i));
+                }
+            }
+            if(true){
+                jarr = new JSONArray(tmp);
+            }
+            file.put("tasks",jarr);
 
+        }catch(Exception exception){}
+
+        mCreateAndSaveFile("TasksFile.json",file.toString());
+    }
 
 
 }
