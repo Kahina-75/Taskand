@@ -1,6 +1,7 @@
 package com.example.taskand;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,10 +18,14 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -195,6 +200,37 @@ public class TaskListActivity extends AppCompatActivity {
         return myQuittingDialogBox;
     }
 
+    //Pour faire la recherche dans la liste
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        MenuItem searchItem= menu.findItem(R.id.search_item);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList <String> TaskName = new ArrayList<>(0);
+                for(String name : subject_list)
+                { if (name.toLowerCase().contains(newText.toLowerCase())){
+
+                            TaskName.add(name);
+                    }
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(TaskListActivity.this,
+                        android.R.layout.simple_list_item_1);
+                listview.setAdapter(adapter);
+                return true;
+
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
 }
 
