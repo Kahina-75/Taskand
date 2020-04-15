@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskDescriptorActivity"
+    android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#00ACC1"
+
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/task" />
+
+                <TextView
+                    android:id="@+id/taskName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image"
+                    android:includeFontPadding="false"
+                    android:text="Task Name"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold" />
+
+                <TextView
+                    android:id="@+id/taskDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/taskName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image"
+                    android:includeFontPadding="false"
+                    android:text="Task Date"
+                    android:textSize="14sp" />
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-100dp"
+                android:layout_width="match_parent"
+                android:padding="20dp">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="125dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#00ACC1"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/diffLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:includeFontPadding="false"
+                            android:text="Difficulty"
+                            android:textColor="#F2F2F2"
+                            android:textSize="20sp"
+                            android:textStyle="normal|bold" />
+
+                        <TextView
+                            android:id="@+id/diff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/diffLabel"
+                            android:layout_centerHorizontal="true"
+                            android:includeFontPadding="false"
+                            android:text="valeur"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="125dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#00ACC1"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/priorityLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:includeFontPadding="false"
+                            android:text="Priority"
+                            android:textColor="#F2F2F2"
+                            android:textSize="20sp"
+                            android:textStyle="normal|bold" />
+
+                        <TextView
+                            android:id="@+id/priority"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/priorityLabel"
+                            android:layout_centerHorizontal="true"
+                            android:includeFontPadding="false"
+                            android:text="valeur"
+                            android:textSize="15sp" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#000"
+                    android:textSize="15sp"
+                    android:textStyle="normal|bold" />
+                <TextView
+                    android:id="@+id/descrip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description de la tache"/>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="430dp"
+                    android:layout_below="@+id/descrip"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/listChildren"/>
+            </LinearLayout>
+
+
+</LinearLayout>
