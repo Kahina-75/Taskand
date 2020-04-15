@@ -41,8 +41,8 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
         if (v.getId() == R.id.bt1){
             addTask();
             //supprimer("TEst");
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+            //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), TaskListActivity.class));
         }
     }
 
