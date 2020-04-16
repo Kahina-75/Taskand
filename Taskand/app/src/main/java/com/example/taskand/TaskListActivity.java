@@ -223,7 +223,7 @@ public class TaskListActivity extends AppCompatActivity {
                     }
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(TaskListActivity.this,
-                        android.R.layout.simple_list_item_1);
+                        android.R.layout.simple_list_item_1,TaskName);
                 listview.setAdapter(adapter);
                 return true;
 
