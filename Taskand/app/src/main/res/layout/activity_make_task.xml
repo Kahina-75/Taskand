@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="ADD NEW TASK !"
         android:fontFamily="sans-serif-black"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/black"
         android:textSize="25dp"
         android:layout_centerHorizontal="true">
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:ems="10"
-            android:text="name" />
+            android:text="Name" />
 
     </RelativeLayout>
 
@@ -91,14 +91,20 @@
         android:calendarViewShown="false"/>
     </RelativeLayout>
 
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/picker"
+        android:layout_centerHorizontal="true">
     <Button
         android:id="@+id/bt1"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/picker"
-        android:text="Submit">
-    </Button>
+        android:text="Submit"
+        android:layout_marginLeft="10dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"/>
 
+    </RelativeLayout>
 
 </RelativeLayout>
