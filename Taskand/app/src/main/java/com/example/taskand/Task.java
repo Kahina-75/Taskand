@@ -7,8 +7,8 @@ import java.util.List;
 public class Task implements TaskDescriptor{
 
     private final List<Task> childs = new ArrayList<>();
-    private String name, description;
-    private Date startingDate, finalDate;
+    private String name, description, startingDate;
+    private Date finalDate;
     private int priority;
     private boolean isCompleted;
     private Task father;
@@ -28,7 +28,7 @@ public class Task implements TaskDescriptor{
     }
 
     @Override
-    public Date getStartingDate() {
+    public String getStartingDate() {
         return this.startingDate;
     }
 
@@ -61,7 +61,7 @@ public class Task implements TaskDescriptor{
         this.description = description;
     }
 
-    public void setStartingDate(Date startingDate) {
+    public void setStartingDate(String startingDate) {
         this.startingDate = startingDate;
     }
 
@@ -78,7 +78,7 @@ public class Task implements TaskDescriptor{
         isCompleted = completed;
     }
 
-    public Task(String name, String description, Date startingDate, Date finalDate, int priority, boolean isCompleted) {
+    public Task(String name, String description, String startingDate, Date finalDate, int priority, boolean isCompleted) {
         this.name = name;
         this.description = description;
         this.startingDate = startingDate;
@@ -138,8 +138,8 @@ public class Task implements TaskDescriptor{
     }
 
     @Override
-    public TaskDescriptor startingDate() {
-        startingDate = new Date();
+    public TaskDescriptor startingDate(String startingDate) {
+        this.startingDate = startingDate;
         return this;
     }
 

@@ -7,7 +7,7 @@ public class FatherTask extends Task implements TaskDescriptor {
 
     int completationPercent;
 
-    public FatherTask(String name, String description, Date startingDate, Date finalDate, int priority, boolean isCompleted, int completationPercent) {
+    public FatherTask(String name, String description, String startingDate, Date finalDate, int priority, boolean isCompleted, int completationPercent) {
         super(name, description, startingDate, finalDate, priority, isCompleted);
         this.completationPercent = 0;
     }

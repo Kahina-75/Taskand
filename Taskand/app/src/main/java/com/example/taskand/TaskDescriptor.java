@@ -8,7 +8,7 @@ public interface TaskDescriptor {
     String getName();
     String getDescription();
     Date getFinalDate();
-    Date getStartingDate();
+    String getStartingDate();
     int getPriority();
     List<Task> getChilds();
     boolean isCompleted();
@@ -18,7 +18,7 @@ public interface TaskDescriptor {
     TaskDescriptor name(String name);
     TaskDescriptor description(String description);
     TaskDescriptor finalDate(Date finalDate);
-    TaskDescriptor startingDate();
+    TaskDescriptor startingDate(String startingDate);
     TaskDescriptor priority(int priority);
     TaskDescriptor complete(boolean complete);
 

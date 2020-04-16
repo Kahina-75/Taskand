@@ -36,6 +36,7 @@ import org.json.JSONObject;
 public class TaskListActivity extends AppCompatActivity {
 
     ListView listview;
+    List<Task> Tasks = new ArrayList<>();
     String[] subjects = new String[]{
             "Android",
             "PHP",
@@ -65,8 +66,14 @@ public class TaskListActivity extends AppCompatActivity {
             jsonObject = readFromJsonFile("TasksFile.json");
             arr = jsonObject.getJSONArray("tasks");
         for (int i=0; i < arr.length(); i++ ){
+            Task task = new Task();
             subject_list.add(arr.getJSONObject(i).get("TaskName").toString());
+            task.setName(arr.getJSONObject(i).get("TaskName").toString());
+            task.setDescription(arr.getJSONObject(i).get("TaskDesc").toString());
+            task.setStartingDate(arr.getJSONObject(i).get("TaskDate").toString());
+            Tasks.add(task);
         }
+
         }catch (Exception e){}
         listview = (ListView) findViewById(R.id.listView1);
 
@@ -92,6 +99,16 @@ public class TaskListActivity extends AppCompatActivity {
                 return true;
             }
 
+        });
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(TaskListActivity.this,TaskDescriptorActivity.class);
+                i.putExtra("nom",Tasks.get(position).getName());
+                i.putExtra("description",Tasks.get(position).getDescription());
+                i.putExtra( "date",Tasks.get(position).getStartingDate() );
+                startActivity(i);
+            }
         });
 
     }
