@@ -12,6 +12,7 @@
         <activity android:name=".ModiFieldActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".TaskDescriptorActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -20,11 +21,19 @@
         <activity
             android:name=".TaskListActivity"
             android:label="Search">
+=======
+        <activity android:name=".TaskListActivity" android:label="Search">
+
+        </activity>
+        <activity android:name=".MakeTaskActivity" android:label=""></activity>
+        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+>>>>>>> 15183fb888f7bf26fe6c523a65b830accb14a44e
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity
             android:name=".MakeTaskActivity"
@@ -32,6 +41,10 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+=======
+
+        </activity>
+>>>>>>> 15183fb888f7bf26fe6c523a65b830accb14a44e
     </application>
 
 </manifest>

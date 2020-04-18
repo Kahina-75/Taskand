@@ -13,10 +13,51 @@ import java.util.List;
 
 
 //test first commit
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+private ImageButton bt2 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ImageButton bt1 = findViewById(R.id.ajouter);
+        bt1.setOnClickListener(this);
+
+        this.bt2=findViewById(R.id.liste);
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent other= new Intent(getApplicationContext(),TaskListActivity.class);
+                startActivity(other);
+
+            }
+        });
+
+
+        ImageButton exit = findViewById(R.id.quitter);
+        exit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View vexit) {
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+            }
+        });
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.ajouter){
+            Toast toast = Toast.makeText(getApplicationContext(), "First button", Toast.LENGTH_SHORT);
+            toast.show();
+            startActivity(new Intent(getApplicationContext(), MakeTaskActivity.class));
+
+        }
+
+    }
+
+
         /*super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Task A = new Task("A");
@@ -47,23 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     */
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ImageButton bt1 = findViewById(R.id.imageButton4);
-        bt1.setOnClickListener(this);
 
-    }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.imageButton4){
-            Toast toast = Toast.makeText(getApplicationContext(), "First button", Toast.LENGTH_SHORT);
-            toast.show();
-            startActivity(new Intent(getApplicationContext(), MakeTaskActivity.class));
 
-        }
-
-        }
 
 }
 
