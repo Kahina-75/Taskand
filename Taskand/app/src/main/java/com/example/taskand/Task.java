@@ -23,11 +23,6 @@ public class Task implements TaskDescriptor{
     }
 
     @Override
-    public Date getFinalDate() {
-        return this.finalDate;
-    }
-
-    @Override
     public String getStartingDate() {
         return this.startingDate;
     }
@@ -37,21 +32,12 @@ public class Task implements TaskDescriptor{
         return this.priority;
     }
 
-    @Override
-    public List<Task> getChilds() {
-        return this.childs;
-    }
 
     @Override
     public boolean isCompleted() {
         return this.isCompleted;
     }
 
-    @Override
-    public void addChild(Task task) {
-        childs.add(task);
-        task.father = this;// pr recuperer l'adresse de la tache mêre a partir de la sous tache
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -114,10 +100,6 @@ public class Task implements TaskDescriptor{
     }
 
 
-            @Override
-    public boolean hasChilds() {
-        return childs.size() > 0;
-    }
 
     @Override
     public String getFatherName() {

@@ -37,13 +37,6 @@ public class TaskListActivity extends AppCompatActivity {
 
     ListView listview;
     List<Task> Tasks = new ArrayList<>();
-    String[] subjects = new String[]{
-            "Android",
-            "PHP",
-            "Blogger",
-            "WordPress",
-            "SEO"
-    };
     List<String> subject_list = new ArrayList<String>();
     ArrayAdapter<String> arrayadapter;
     JSONArray arr = null;
