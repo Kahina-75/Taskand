@@ -54,10 +54,12 @@ public class TaskListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
 
-        FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.add);
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), MakeTaskActivity.class));
+                Intent i = new Intent(getApplicationContext(), MakeTaskActivity.class);
+                //i.putExtra("taskType","Fadher");
+                startActivity(i);
 
             }
         });
@@ -71,6 +73,7 @@ public class TaskListActivity extends AppCompatActivity {
             task.setName(arr.getJSONObject(i).get("TaskName").toString());
             task.setDescription(arr.getJSONObject(i).get("TaskDesc").toString());
             task.setStartingDate(arr.getJSONObject(i).get("TaskDate").toString());
+            //task.FatherName(arr.getJSONObject(i).get("TaskFatherName").toString());
             Tasks.add(task);
         }
 
@@ -106,7 +109,8 @@ public class TaskListActivity extends AppCompatActivity {
                 Intent i = new Intent(TaskListActivity.this,TaskDescriptorActivity.class);
                 i.putExtra("nom",Tasks.get(position).getName());
                 i.putExtra("description",Tasks.get(position).getDescription());
-                i.putExtra( "date",Tasks.get(position).getStartingDate() );
+                i.putExtra( "date",Tasks.get(position).getStartingDate());
+
                 startActivity(i);
             }
         });
@@ -207,9 +211,7 @@ public class TaskListActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                         dialog.dismiss();
-
                     }
                 })
                 .create();
@@ -229,13 +231,11 @@ public class TaskListActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 ArrayList <String> TaskName = new ArrayList<>(0);
                 for(String name : subject_list)
                 { if (name.toLowerCase().contains(newText.toLowerCase())){
-
                             TaskName.add(name);
                     }
                 }

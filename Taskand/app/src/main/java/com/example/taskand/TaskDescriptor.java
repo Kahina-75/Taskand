@@ -14,9 +14,11 @@ public interface TaskDescriptor {
     boolean isCompleted();
     void addChild(Task task);
     boolean hasChilds();
+    String getFatherName();
 
     TaskDescriptor name(String name);
     TaskDescriptor description(String description);
+    TaskDescriptor FatherName(String fatherName);
     TaskDescriptor finalDate(Date finalDate);
     TaskDescriptor startingDate(String startingDate);
     TaskDescriptor priority(int priority);

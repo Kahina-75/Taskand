@@ -28,12 +28,14 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
 
     private String curDate;
     private JSONObject jsonFile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_task);
         Button bt1 = findViewById(R.id.bt1);
         bt1.setOnClickListener(this);
+
     }
 
     @Override
@@ -87,7 +89,18 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
         JSONArray jarr = null;
         JSONObject file = null;
         String tmp =null;
+        Intent intent = getIntent();
+        String fatherName = "No Father";
+        if (intent.hasExtra("nameFather")){ // vérifie qu'une valeur est associée à la clé “Description”
+                    fatherName = intent.getStringExtra("nameFather"); // on récupère la valeur associée à la clé
+                }
         try{
+            /*String taskType = "";
+            if (intent.hasExtra("taskType")){ // vérifie qu'une valeur est associée à la clé “Description”
+                taskType = intent.getStringExtra("taskType"); // on récupère la valeur associée à la clé
+            }*/
+
+
             file = readFromJsonFile("TasksFile.json");
             //file = new JSONObject();
             jarr = file.getJSONArray("tasks");
@@ -104,6 +117,7 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
             obj1.put("TaskName",name.getText().toString());
             obj1.put("TaskDesc",desc.getText().toString());
             obj1.put("TaskDate",day+"-" + month + "-"+year);
+            obj1.put("TaskFatherName",fatherName);
 
             JSONArray subTask = new JSONArray();
             obj1.put("subTask",subTask);

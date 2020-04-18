@@ -7,7 +7,7 @@ import java.util.List;
 public class Task implements TaskDescriptor{
 
     private final List<Task> childs = new ArrayList<>();
-    private String name, description, startingDate;
+    private String name, description, startingDate, fadherName;
     private Date finalDate;
     private int priority;
     private boolean isCompleted;
@@ -120,6 +120,11 @@ public class Task implements TaskDescriptor{
     }
 
     @Override
+    public String getFatherName() {
+        return this.fadherName;
+    }
+
+    @Override
     public TaskDescriptor name(String name) {
         this.name = name;
         return this;
@@ -128,6 +133,12 @@ public class Task implements TaskDescriptor{
     @Override
     public TaskDescriptor description(String description) {
         this.description = description;
+        return this;
+    }
+
+    @Override
+    public TaskDescriptor FatherName(String fatherName) {
+        this.fadherName=fatherName;
         return this;
     }
 
