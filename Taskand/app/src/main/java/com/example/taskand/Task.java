@@ -57,7 +57,7 @@ public class Task implements TaskDescriptor{
 
     public void setPriority(int priority) {
         this.priority = priority;
-        this.father.UpdateChildsOrder();
+        //this.father.UpdateChildsOrder();
     }
 
     public void setCompleted(boolean completed) {

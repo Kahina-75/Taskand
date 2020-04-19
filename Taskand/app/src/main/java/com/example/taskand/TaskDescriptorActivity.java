@@ -68,6 +68,7 @@ public class TaskDescriptorActivity extends AppCompatActivity {
             }
             if (intent.hasExtra("pre")){ // vérifie qu'une valeur est associée à la clé “date”
                 taskPre= intent.getIntExtra("pre",-1); // on récupère la valeur associée à la clé
+                //taskPre = 100;
             }
             name.setText(nom);
             descrip.setText(Description);

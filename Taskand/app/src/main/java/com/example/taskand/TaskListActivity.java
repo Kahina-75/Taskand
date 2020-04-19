@@ -66,6 +66,7 @@ public class TaskListActivity extends AppCompatActivity {
             task.setName(arr.getJSONObject(i).get("TaskName").toString());
             task.setDescription(arr.getJSONObject(i).get("TaskDesc").toString());
             task.setStartingDate(arr.getJSONObject(i).get("TaskDate").toString());
+            task.setPriority(arr.getJSONObject(i).getInt("TaskPre"));
             //task.FatherName(arr.getJSONObject(i).get("TaskFatherName").toString());
             Tasks.add(task);
         }
