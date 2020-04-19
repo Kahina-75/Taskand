@@ -25,11 +25,12 @@ import java.util.List;
 
 public class TaskDescriptorActivity extends AppCompatActivity {
 
-    TextView name,descrip,date1;
+    TextView name,descrip,date1,preText;
     Button modif,supp;
     String nom = "";
     String Description = "";
     String Date = "";
+    int taskPre = -1;
     int posTask;
     //Partie ListSons
     ListView listView;
@@ -50,6 +51,7 @@ public class TaskDescriptorActivity extends AppCompatActivity {
         name = findViewById(R.id.taskName);
         descrip = findViewById(R.id.descrip);
         date1 = findViewById(R.id.taskDate);
+        preText = findViewById(R.id.priority);
         if (intent!=null){
             //Toast.makeText(TaskDescriptorActivity.this,"Data Inserted Successfully "+intent.getStringExtra("nom"),Toast.LENGTH_LONG).show();
 
@@ -64,9 +66,13 @@ public class TaskDescriptorActivity extends AppCompatActivity {
             if (intent.hasExtra("date")){ // vérifie qu'une valeur est associée à la clé “date”
                 Date= intent.getStringExtra("date"); // on récupère la valeur associée à la clé
             }
+            if (intent.hasExtra("pre")){ // vérifie qu'une valeur est associée à la clé “date”
+                taskPre= intent.getIntExtra("pre",-1); // on récupère la valeur associée à la clé
+            }
             name.setText(nom);
             descrip.setText(Description);
             date1.setText(Date);
+            preText.setText(taskPre + "");
         }
         //BoutonModif
         modif.setOnClickListener(new View.OnClickListener() {
