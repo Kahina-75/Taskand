@@ -31,7 +31,7 @@ public class TaskDescriptorActivity extends AppCompatActivity {
     String Description = "";
     String Date = "";
     int taskPre = -1;
-    int posTask;
+    int posTask = -1;
     //Partie ListSons
     ListView listView;
     List<Task> listChilren = new ArrayList<>();
@@ -52,6 +52,7 @@ public class TaskDescriptorActivity extends AppCompatActivity {
         descrip = findViewById(R.id.descrip);
         date1 = findViewById(R.id.taskDate);
         preText = findViewById(R.id.priority);
+
         if (intent!=null){
             //Toast.makeText(TaskDescriptorActivity.this,"Data Inserted Successfully "+intent.getStringExtra("nom"),Toast.LENGTH_LONG).show();
 
@@ -70,6 +71,10 @@ public class TaskDescriptorActivity extends AppCompatActivity {
                 taskPre= intent.getIntExtra("pre",-1); // on récupère la valeur associée à la clé
                 //taskPre = 100;
             }
+            if (intent.hasExtra("positionTask")){ // vérifie qu'une valeur est associée à la clé “date”
+                posTask= intent.getIntExtra("positionTask",-1); // on récupère la valeur associée à la clé
+                //taskPre = 100;
+            }
             name.setText(nom);
             descrip.setText(Description);
             date1.setText(Date);
@@ -82,6 +87,8 @@ public class TaskDescriptorActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), ModiFieldActivity.class);
                 i.putExtra("nom", nom);
                 i.putExtra("description", Description);
+                i.putExtra("taskPre",taskPre);
+                i.putExtra("position",posTask);
                 startActivity(i);
             }
         });
@@ -114,6 +121,7 @@ public class TaskDescriptorActivity extends AppCompatActivity {
                 task.setName(arr.getJSONObject(i).get("TaskName").toString());
                 task.setDescription(arr.getJSONObject(i).get("TaskDesc").toString());
                 task.setStartingDate(arr.getJSONObject(i).get("TaskDate").toString());
+
                 task.FatherName(arr.getJSONObject(i).get("TaskFatherName").toString());
                 Tasks.add(task);
             }

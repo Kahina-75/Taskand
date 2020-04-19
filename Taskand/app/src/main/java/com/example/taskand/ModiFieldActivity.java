@@ -12,7 +12,9 @@ public class ModiFieldActivity extends AppCompatActivity {
     Button addSon;
     String nomTask = "";
     String descripTask = "";
-    EditText name,descrip;
+    EditText name,descrip,pre;
+    int position = -1;
+    int preValue = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +22,22 @@ public class ModiFieldActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name = findViewById(R.id.nameEdit);
         descrip=findViewById(R.id.descripEdit);
+        pre=findViewById(R.id.PreEdit);
         if (intent.hasExtra("description")){
             descripTask = intent.getStringExtra("description");}
+
         if (intent.hasExtra("nom")){
             nomTask = intent.getStringExtra("nom");}
+
+        if (intent.hasExtra("position")){
+            position = intent.getIntExtra("position",-1);}
+
+        if (intent.hasExtra("taskPre")){
+            preValue = intent.getIntExtra("taskPre",-1);}
+
         name.setText(nomTask);
         descrip.setText(descripTask);
+        pre.setText(preValue + "");
         addSon = findViewById(R.id.SonTask);
         addSon.setOnClickListener(new View.OnClickListener() {
             @Override

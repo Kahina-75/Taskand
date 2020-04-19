@@ -106,7 +106,6 @@ public class TaskListActivity extends AppCompatActivity {
                 i.putExtra( "date",Tasks.get(position).getStartingDate());
                 i.putExtra("pre",Tasks.get(position).getPriority());
                 i.putExtra("positionTask",position);
-
                 startActivity(i);
             }
         });
