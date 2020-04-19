@@ -43,6 +43,8 @@ On a essayé de répondre au different questions du projet par la realisation d'
 * **DELETE TASK** : suppression des tâches
 * **LIST TASKS** : affichage des taches, aussi affichage individuel d'une seul tache en details
 * **ADD CHILD TASK** : ajouter les sous-tâches
+* **API de partage** : partage des données entre plusieurs appareils (pas encore fusionner avec l'appli).
+
 
 
 
