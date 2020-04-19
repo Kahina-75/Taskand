@@ -41,7 +41,7 @@ public class TaskListActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayadapter;
     JSONArray arr = null;
     JSONObject jsonObject = null;
-
+    int posTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,7 @@ public class TaskListActivity extends AppCompatActivity {
 
             }
         });
+
 
         try{
             jsonObject = readFromJsonFile("TasksFile.json");
@@ -78,6 +79,7 @@ public class TaskListActivity extends AppCompatActivity {
         arrayadapter = new ArrayAdapter<String>(TaskListActivity.this, android.R.layout.simple_list_item_1, subject_list);
 
         listview.setAdapter(arrayadapter);
+
 
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
@@ -104,13 +106,12 @@ public class TaskListActivity extends AppCompatActivity {
                 i.putExtra("description",Tasks.get(position).getDescription());
                 i.putExtra( "date",Tasks.get(position).getStartingDate());
                 i.putExtra("positionTask",position);
-
                 startActivity(i);
             }
         });
 
-    }
 
+    }
     public JSONObject readFromJsonFile(String fileName){
         ArrayList<String> result = new ArrayList<String>();
         JSONObject obj = null;
@@ -129,7 +130,6 @@ public class TaskListActivity extends AppCompatActivity {
             System.out.println(ex.toString());
             return obj;
         }
-
     }
 
     public void supprimer(int pos){

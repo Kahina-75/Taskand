@@ -26,7 +26,7 @@ import java.util.List;
 public class TaskDescriptorActivity extends AppCompatActivity {
 
     TextView name,descrip,date1;
-    Button modif,supp;
+    Button modif;
     String nom = "";
     String Description = "";
     String Date = "";
@@ -45,7 +45,6 @@ public class TaskDescriptorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_descriptor);
         Intent intent = getIntent();
-        supp = findViewById(R.id.supp);
         modif = findViewById(R.id.modif);
         name = findViewById(R.id.taskName);
         descrip = findViewById(R.id.descrip);
@@ -78,23 +77,10 @@ public class TaskDescriptorActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-      /*  if (intent.hasExtra("positionTask")){ // vérifie qu'une valeur est associée à la clé “date”
-            posTask= Integer.parseInt(intent.getStringExtra("positionTask")); // on récupère la valeur associée à la clé
-        }
+
         //BoutonSupp
-        supp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //AlertDialog diaBox = AskOption();
-                // diaBox.show();
-                subject_list.remove(posTask);
-                supprimer(posTask);
-                arrayadapter.notifyDataSetChanged();
-                Toast.makeText(TaskDescriptorActivity.this, "Item Deleted", Toast.LENGTH_LONG).show();
 
-            }
-        });*/
         //Partie ListView
 
         try{
@@ -157,34 +143,5 @@ public class TaskDescriptorActivity extends AppCompatActivity {
         }
 
     }
-    public void supprimer(int pos){
-        try{
-            ArrayList tmp = new ArrayList();
-            boolean find = false;
-            for (int i = 0; i < arr.length(); i++){
-                if(i == pos){
-                    tmp.add(arr.getJSONObject(i));
-                    find = true;
-                    break;
-                }
-            }
-            if(true){
-                arr = new JSONArray(tmp);
-            }
-            jsonObject.put("tasks",arr);
 
-        }catch(Exception exception){}
-
-        mCreateAndSaveFile("TasksFile.json",jsonObject.toString());
-    }
-    public void mCreateAndSaveFile(String params, String mJsonResponse) {
-        try {
-            FileWriter file = new FileWriter("/data/data/" + getApplicationContext().getPackageName() + "/" + params);
-            file.write(mJsonResponse);
-            file.flush();
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

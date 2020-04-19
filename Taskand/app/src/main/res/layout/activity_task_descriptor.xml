@@ -93,7 +93,6 @@
                             android:layout_below="@id/diffLabel"
                             android:layout_centerHorizontal="true"
                             android:includeFontPadding="false"
-                            android:text="valeur"
                             android:textSize="15sp" />
                     </RelativeLayout>
 
@@ -129,7 +128,6 @@
                             android:layout_below="@id/priorityLabel"
                             android:layout_centerHorizontal="true"
                             android:includeFontPadding="false"
-                            android:text="valeur"
                             android:textSize="15sp" />
                     </RelativeLayout>
 
@@ -172,27 +170,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="bottom"
+        android:layout_marginLeft="70dp"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/modif"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Modification"
+            android:text="Edit"
+            android:gravity="center"
             android:background="@drawable/bt_style"
             android:textColor="@android:color/white"
-            android:layout_marginRight="10dp" />
+             />
 
-        <Button
-            android:id="@+id/supp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Supprimer"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/bt_style"
-            android:textColor="@android:color/white" />
     </LinearLayout>
                 </LinearLayout>
     </ScrollView>
