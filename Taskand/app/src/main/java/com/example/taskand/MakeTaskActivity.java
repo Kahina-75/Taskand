@@ -117,6 +117,7 @@ public class MakeTaskActivity extends AppCompatActivity implements View.OnClickL
             obj1.put("TaskName",name.getText().toString());
             obj1.put("TaskDesc",desc.getText().toString());
             obj1.put("TaskDate",day+"-" + month + "-"+year);
+            obj1.put("TaskPre",Integer.parseInt(edtPrio.getText().toString()));
             obj1.put("TaskFatherName",fatherName);
 
             JSONArray subTask = new JSONArray();
