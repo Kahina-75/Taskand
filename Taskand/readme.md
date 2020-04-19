@@ -17,3 +17,17 @@ Membres :
 ```
 https://github.com/Kahina-75/Taskand.git
 ```
+
+## outils utilisés :
+
+```
+Android Studio
+JSON 
+Python
+```
+
+## Installing
+
+```
+Pour installer le projet il suffit de l'importer dans un IDE Android comme : Eclipse,Android Studio...
+```
